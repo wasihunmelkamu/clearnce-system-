@@ -13,7 +13,7 @@ function DebtorsList() {
     error: postError,
     loading: postLoading,
     post,
-  } = useFetch("/admin");
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin`);
 
   useEffect(() => {
     get("/");

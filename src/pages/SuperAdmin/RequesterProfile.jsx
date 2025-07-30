@@ -87,7 +87,7 @@ import useFetch from "../../api/useFetch";
 import Wrapper from "./Wrapper";
 const RequesterProfile = () => {
   const { id } = useParams();
-  const { data, error, loading, get } = useFetch("/status/admin");
+  const { data, error, loading, get } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/status/admin`);
   const [originalData, setOriginalData] = useState([]);
 
   useEffect(() => {

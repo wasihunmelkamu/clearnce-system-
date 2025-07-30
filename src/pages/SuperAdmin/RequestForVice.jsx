@@ -292,7 +292,7 @@ export default function ClearanceRequestersList() {
     error: viceError,
     loading: viceLoading,
     get: getVice,
-  } = useFetch("/status/admin"); //older url = /request/admin/vice/get
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/status/admin`); //older url = /request/admin/vice/get
 
   // Helper function to format date
   const formatDate = (dateString) => {

@@ -251,7 +251,7 @@ const HrProfile = () => {
     error: HRError,
     loading: HRLoading,
     get: getHR,
-  } = useFetch("/status/admin"); // Base URL for useFetch should be set in its configuration
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/status/admin`); // Base URL for useFetch should be set in its configuration
 
   // State to hold the admin data once fetched
   const [adminInfo, setAdminInfo] = useState(null);

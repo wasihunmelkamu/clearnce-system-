@@ -124,7 +124,7 @@ function ClearedStaff() {
   const [searchTerm, setSearchTerm] = useState(""); // State for search term
   const [selectedFilter, setSelectedFilter] = useState("All"); // State for selected filter
 
-  const { data, error, loading, get } = useFetch("/cleared"); // Assuming /cleared/get is the endpoint
+  const { data, error, loading, get } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/cleared`); // Assuming /cleared/get is the endpoint
 
   const navigate = useNavigate();
 

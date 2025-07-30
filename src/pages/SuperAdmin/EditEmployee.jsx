@@ -22,7 +22,7 @@ const EditEmployee = () => {
   const staffId = parseInt(id);
 
 
-  const { data, error, loading, get } = useFetch("/admin");
+  const { data, error, loading, get } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin`);
 
 
   const {
@@ -30,14 +30,14 @@ const EditEmployee = () => {
     error: puterror,
     loading: putloading,
     put,
-  } = useFetch("/admin");
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin`);
 
   const {
     data: deletedata, // Renamed
     error: deleteerror,
     loading: deleteloading,
     del,
-  } = useFetch("/admin");
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin`);
 
   const [staffDetail, setStaffDetail] = useState(null);
   const [isEditing, setIsEditing] = useState(false);

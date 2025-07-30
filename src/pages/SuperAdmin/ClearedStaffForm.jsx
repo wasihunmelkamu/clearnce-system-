@@ -239,7 +239,7 @@ import TitleBar from "../../components/layout/TitleBar";
 const ClearedStaffForm = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { post, loading, error } = useFetch("/cleared"); // Removed 'data' as it's not directly used for display here
+  const { post, loading, error } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/cleared`); // Removed 'data' as it's not directly used for display here
 
   const [formData, setFormData] = useState({
     id: id,

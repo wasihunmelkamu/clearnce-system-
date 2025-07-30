@@ -25,7 +25,7 @@ function AllEmployeesList() {
   ];
 
   const [filteredData, setFilteredData] = useState([]);
-  const { data, error, loading, get } = useFetch("/admin"); // Assuming this is your base URL for employee data
+  const { data, error, loading, get } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin`); // Assuming this is your base URL for employee data
 
   const navigate = useNavigate();
 

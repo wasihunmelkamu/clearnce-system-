@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { HRContext } from "../../contexts/AllDataContext.js";
 
 export default function ClearanceRequestersList() {
-  const { data, error, loading, get } = useFetch("/request/admin");
+  const { data, error, loading, get } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/request/admin`);
 
   useEffect(() => {
     get("/get"); // Fetch data on component mount
@@ -30,7 +30,7 @@ export default function ClearanceRequestersList() {
     error: HRError,
     loading: HRLoading,
     get: getHR,
-  } = useFetch("/status/admin");
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/status/admin`);
 
   useEffect(() => {
     if (!HR) {
@@ -54,7 +54,7 @@ export default function ClearanceRequestersList() {
     error: postError,
     loading: postLoading,
     post,
-  } = useFetch("/admin");
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin`);
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -72,7 +72,7 @@ export default function ClearanceRequestersList() {
     { label: "Action", key: "action" },
   ];
 
-  const { data: postdata, post: postApprove } = useFetch("/cleared");
+  const { data: postdata, post: postApprove } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/cleared`);
 
   const handleApprove = (row) => {
     navigate(`/clearedstaffform/${row.staff_id}`);

@@ -42,7 +42,6 @@
 
 //   // Handle local search and filter for HR data
 
-  
 //   useEffect(() => {
 //     if (!HR) return; // Ensure HR data is available
 
@@ -59,7 +58,6 @@
 //     });
 //     setHRFilteredData(filtered);
 //   }, [HR, searchTerm, selectedFilter]);
-
 
 //   const header1 = [
 //     { label: "First Name", key: "fname" },
@@ -131,9 +129,6 @@
 
 // export default RequestForHR;
 
-
-
-
 import React, { useEffect, useContext, useState } from "react";
 import useFetch from "../../api/useFetch.js";
 import Spinner from "../../components/ui/Spinner";
@@ -157,7 +152,7 @@ const RequestForHR = () => {
     error: HRError,
     loading: HRLoading,
     get: getHR,
-  } = useFetch("/status/admin");
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/status/admin`);
 
   // Fetch HR data if not already in context
   useEffect(() => {
@@ -170,7 +165,8 @@ const RequestForHR = () => {
 
   // Update HR context and filtered data when HRData changes
   useEffect(() => {
-    if (HRData?.status) { // Assuming HRData structure includes a 'status' array
+    if (HRData?.status) {
+      // Assuming HRData structure includes a 'status' array
       setHR(HRData.status);
       setHRFilteredData(HRData.status);
     }
@@ -178,9 +174,8 @@ const RequestForHR = () => {
 
   // Handle local search and filter for HR data
 
-  
   const handleSearch = (searchTerm, selectedFilter) => {
-    if (!HR ) return;
+    if (!HR) return;
 
     const filtered1 = HR.filter((data) => {
       const name = data.fname || "";
@@ -196,7 +191,6 @@ const RequestForHR = () => {
 
     setHRFilteredData(filtered1);
   };
-
 
   const header1 = [
     { label: "First Name", key: "fname" },
@@ -220,24 +214,24 @@ const RequestForHR = () => {
   return (
     <Wrapper>
       <div>
-    {  console.log(HRFilteredData)}
-      <TitleBar title="Clearance Requesters List" />
+        <TitleBar title="Clearance Requesters List" />
         <SearchBar
-   
-        
           filterParams={["All", "Approved", "Pending", "Rejected"]}
           searchFunction={handleSearch}
           placeholder="Search for requests..."
         />
         <div className="mt-10 text-2xl font-bold">
-          List of employees who are approving the clearance request in different offices:
+          List of employees who are approving the clearance request in different
+          offices:
         </div>
         <br />
         {HRLoading && <Spinner />}
         {HRError && (
           <>
             {console.log("Error occurred:", HRError)}
-            <p className="text-red-600">Can not load HR clearance statuses, check your connection.</p>
+            <p className="text-red-600">
+              Can not load HR clearance statuses, check your connection.
+            </p>
           </>
         )}
         {!HRLoading && !HRError && (
@@ -270,4 +264,3 @@ const RequestForHR = () => {
 };
 
 export default RequestForHR;
-

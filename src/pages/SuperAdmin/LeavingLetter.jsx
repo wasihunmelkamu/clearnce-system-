@@ -10,7 +10,7 @@ import TitleBar from "../../components/layout/TitleBar";
 const ComponentToPrint = React.forwardRef((props, ref) => {
   const { id } = useParams();
   const staffId = parseInt(id);
-  const { data, get } = useFetch("/cleared");
+  const { data, get } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/cleared`);
   const [staffDetail, setStaffDetail] = useState(null);
 
   useEffect(() => {

@@ -176,7 +176,7 @@ const RequestForHead = () => {
     error: headError,
     loading: headLoading,
     get: getHead,
-  } = useFetch("/status/admin"); // Base URL for the fetch //status/admin/request
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/status/admin`); // Base URL for the fetch //status/admin/request
   // older fetche url = request/admin/department/get
   // Effect to fetch Head data if not in context
   useEffect(() => {

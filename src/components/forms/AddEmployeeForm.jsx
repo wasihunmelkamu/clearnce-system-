@@ -292,6 +292,7 @@ import useFetch from "../../api/useFetch.js";
 import Spinner from "../../components/ui/Spinner.jsx"; // Make sure Spinner is imported
 import "./style.css";
 
+
 const AddEmployeeForm = () => {
   // useFetch for POST request to register a new employee
   const {
@@ -299,7 +300,7 @@ const AddEmployeeForm = () => {
     error: postError,
     loading: postLoading,
     post,
-  } = useFetch("/admin");
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin`);
 
   // useFetch for GET request to fetch departments
   const {
@@ -307,7 +308,7 @@ const AddEmployeeForm = () => {
     error: departmentError,
     loading: departmentLoading,
     get,
-  } = useFetch("/admin");
+  } = useFetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin`);
 
   useEffect(() => {
     get("/department");
