@@ -12,7 +12,7 @@ import DebtorProfile from "./pages/SuperAdmin/DebtorProfile";
 import Approval from "./pages/SuperAdmin/Approval";
 import AddEmployeeForm from "./components/forms/AddEmployeeForm";
 
-import EmplyeeDetail from "./pages/SuperAdmin/EmployeeDetail";
+//import EmployeeDetail from "./pages/SuperAdmin/EmployeeDetail.jsx";
 
 import EditEmployee from "./pages/SuperAdmin/EditEmployee";
 import LeavingLetter from "./pages/SuperAdmin/LeavingLetter";

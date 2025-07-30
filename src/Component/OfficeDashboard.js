@@ -35,7 +35,7 @@ function OfficePage() {
       setError("")
 
       try {
-        const response = await axios.get("/record/display") // Replace with your backend endpoint
+        const response = await axios.get(`${process.env.REACT_APP_DEPLOYMENT_LINK}/record/display`) // Replace with your backend endpoint
         setRecords(response.data.record.map(transformRecord)) // Transform the data
       } catch (err) {
         setError("Failed to load records.")
@@ -51,7 +51,7 @@ function OfficePage() {
   const handleDelete = async (id) => {
     try {
       setLoading(true)
-      await axios.delete(`/record/delete/${id}`) // Replace with your backend endpoint
+      await axios.delete(`${process.env.REACT_APP_DEPLOYMENT_LINK}/record/delete/${id}`) // Replace with your backend endpoint
       setRecords((prev) => prev.filter((record) => record.id !== id))
       setIsDeleteModalOpen(false)
     } catch (err) {

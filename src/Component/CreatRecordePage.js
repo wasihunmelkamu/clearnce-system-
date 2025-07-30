@@ -38,7 +38,7 @@ function CreateRecord() {
     setError("")
 
     try {
-      const response = await axios.post("/record/create", formData)
+      const response = await axios.post(`${process.env.REACT_APP_DEPLOYMENT_LINK}/record/create`, formData)
       if (response.status === 200) {
         setSuccessMessage("Record created successfully!")
         setTimeout(() => {

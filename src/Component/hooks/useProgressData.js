@@ -10,7 +10,7 @@ export function useProgressData() {
       try {
         setLoading(true);
         // Fetch stats from the backend
-        const response = await axios.get("/status/progress");
+        const response = await axios.get(`${process.env.REACT_APP_DEPLOYMENT_LINK}/status/progress`);
         const { pendingCount, completedCount, percentage } = response.data;
         // Mock data with stats updated from the backend
         const mockData = {

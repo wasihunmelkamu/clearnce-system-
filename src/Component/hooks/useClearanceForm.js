@@ -87,7 +87,7 @@ function useClearanceForm() {
     setSubmitSuccess(false);
 
     try {
-      const response = await fetch("/staff/request", {
+      const response = await fetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}./staff/request`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

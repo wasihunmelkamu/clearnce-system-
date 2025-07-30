@@ -32,7 +32,7 @@ export default function DepartmentDashboard() {
       setError(null);
 
       try {
-        const response = await fetch("/request/admin/department/get");
+        const response = await fetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/request/admin/department/get`);
 
         if (!response.ok) {
           throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -90,7 +90,7 @@ export default function DepartmentDashboard() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`/request/admin/update`, {
+      const response = await fetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/request/admin/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +128,7 @@ export default function DepartmentDashboard() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`/request/admin/reject/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/request/admin/reject/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

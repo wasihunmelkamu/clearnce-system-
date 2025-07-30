@@ -39,7 +39,7 @@ const Login = () => {
 
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(identifier)
     const payload = isEmail ? { email: identifier, password } : { username: identifier, password }
-    const endpoint = isEmail ? "https://aastu-clearance.onrender.com/login":"https://aastu-clearance.onrender.com/admin/login"
+    const endpoint = isEmail ? `${process.env.REACT_APP_DEPLOYMENT_LINK}/login`:`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin/login`
 
     try {
       const response = await axios.post(endpoint, payload, {

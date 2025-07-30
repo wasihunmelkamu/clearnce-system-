@@ -15,7 +15,7 @@ export default function ApprovalRequestList() {
     const fetchClearanceRequests = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("/request/admin/vice/get");
+        const response = await axios.get(`${process.env.REACT_APP_DEPLOYMENT_LINK}/request/admin/vice/get`);
         setRequests(response.data.request || []);
       } catch (err) {
         console.error("Failed to fetch clearance requests:", err);
@@ -78,7 +78,7 @@ export default function ApprovalRequestList() {
   const refreshData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("/request/admin/vice/get");
+      const response = await axios.get(`${process.env.REACT_APP_DEPLOYMENT_LINK}/request/admin/vice/get`);
       setRequests(response.data.request || []);
     } catch (err) {
       console.error("Failed to refresh data:", err);

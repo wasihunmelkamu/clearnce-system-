@@ -9,7 +9,7 @@ const useDepartments = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get('/admin/department');
+        const response = await axios.get(`${process.env.REACT_APP_DEPLOYMENT_LINK}/admin/department`);
         setDepartments(response.data);
       } catch (err) {
         setError(err.message);

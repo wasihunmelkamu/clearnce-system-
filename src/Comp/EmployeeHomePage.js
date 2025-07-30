@@ -62,7 +62,7 @@ function EmployeeDashboard() {
     setError(null);
 
     try {
-      const response = await fetch("/api/wam/man");
+      const response = await fetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/api/wam/man`);
 
       if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);

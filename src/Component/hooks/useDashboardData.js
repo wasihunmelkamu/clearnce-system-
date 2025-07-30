@@ -23,7 +23,7 @@ export function useDashboardData() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("/status/progress", {
+        const response = await axios.get(`${process.env.REACT_APP_DEPLOYMENT_LINK}/status/progress`, {
           withCredentials: true,
         });
         const { pendingCount, completedCount, percentage } = response.data;

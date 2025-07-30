@@ -16,7 +16,7 @@ const ForgotPassword = () => {
 
     try {
       // 👇 Replace this with your actual forgot password API call
-      const response = await fetch("/staff/admin", {
+      const response = await fetch(`${process.env.REACT_APP_DEPLOYMENT_LINK}/staff/admin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

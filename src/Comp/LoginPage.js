@@ -64,7 +64,7 @@ const LoginPage = () => {
     // Send data to backend
     try {
       const response = await axios.post(
-        "/staff/changepassword", // Replace with the correct backend URL
+        `${process.env.REACT_APP_DEPLOYMENT_LINK}/staff/changepassword`, // Replace with the correct backend URL
         {
           oldPassword,
           newPassword,
