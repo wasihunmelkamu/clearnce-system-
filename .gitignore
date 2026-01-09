@@ -21,7 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
+.env
 # my ignored files
 /src/components/layout/Pagination.jsx
 /src/codeWarehouse
